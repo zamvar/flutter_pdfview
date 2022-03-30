@@ -61,7 +61,6 @@ public class FlutterPDFView implements PlatformView, MethodCallHandler {
                     .enableAnnotationRendering(true)
                     .linkHandler(linkHandler)
                     .enableAntialiasing(true)
-                    .enableDoubletap(false)
                     // .fitEachPage(getBoolean(params,"fitEachPage"))
                     .onPageChange(new OnPageChangeListener() {
                         @Override
@@ -93,7 +92,7 @@ public class FlutterPDFView implements PlatformView, MethodCallHandler {
                     args.put("pages", pages);
                     methodChannel.invokeMethod("onRender", args);
                 }
-            }).enableDoubletap(true).defaultPage(getInt(params, "defaultPage")).load();
+            }).enableDoubletap(false).defaultPage(getInt(params, "defaultPage")).load();
         }
     }
 
